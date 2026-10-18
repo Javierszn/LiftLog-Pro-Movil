@@ -1,34 +1,28 @@
 # LiftLog Pro
 
-## Primer parcial
+Aplicación Flutter para organizar rutinas de fuerza y llevar un registro personal de entrenamiento.
 
-Esta entrega contiene una primera version navegable del proyecto:
+## Funciones
 
-- Acceso y registro de muestra con validacion basica de campos.
-- Dashboard con accesos a los modulos.
-- Ejercicios: alta, consulta, edicion y eliminacion por deslizamiento.
-- Detalle de cada ejercicio.
-- Progreso visual, preparado para integrar la camara.
-- Perfil con una meta semanal temporal.
+- Pantalla de acceso y panel principal.
+- Plan semanal con rutinas por día.
+- Sesión de entrenamiento con lista de ejercicios y control de avance.
+- Catálogo de ejercicios: agregar, consultar, editar y eliminar.
+- Registro de peso corporal con historial.
+- Perfil con meta semanal.
 
-El acceso es una demostracion y no guarda cuentas. Los ejercicios se conservan en memoria y vuelven a los ejemplos al reiniciar la aplicacion. La pantalla de progreso todavia no captura fotos y la meta del perfil no se guarda permanentemente. La autenticacion local, SQLite y la camara se integraran en las siguientes etapas.
-
-El codigo usa `StatefulWidget`, `setState`, `ListView.builder`, `AlertDialog`, `DropdownButton`, `Dismissible`, `SnackBar` y `Navigator.push`, patrones practicados en clase.
+El acceso valida los campos y muestra el panel; no crea usuarios ni envía credenciales a un servicio. Los ejercicios, mediciones y meta semanal se mantienen en memoria durante la sesión. El proyecto está desarrollado con widgets de Flutter como `StatefulWidget`, `setState`, `ListView.builder`, `AlertDialog`, `DropdownButton`, `Dismissible`, `SnackBar` y `Navigator`.
 
 ## Ejecutar en Chrome
 
 ```powershell
-& "C:\src\flutter\bin\flutter.bat" run -d chrome
+flutter pub get
+flutter run -d chrome
 ```
 
 ## Ejecutar en Android
 
 ```powershell
-& "C:\src\flutter\bin\flutter.bat" run
-```
-
-## Analisis estatico
-
-```powershell
-& "C:\src\flutter\bin\flutter.bat" analyze --no-pub
+flutter pub get
+flutter run
 ```

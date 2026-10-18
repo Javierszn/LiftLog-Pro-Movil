@@ -13,6 +13,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Perfil y ajustes')),
       body: Center(
@@ -21,14 +23,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: ListView(
             padding: const EdgeInsets.all(24),
             children: [
-              const CircleAvatar(radius: 38, child: Icon(Icons.person_outline, size: 42)),
+              CircleAvatar(radius: 42, backgroundColor: colors.primaryContainer, child: Icon(Icons.person_outline, size: 46, color: colors.onPrimaryContainer)),
               const SizedBox(height: 12),
-              Text('Atleta LiftLog', textAlign: TextAlign.center, style: Theme.of(context).textTheme.titleLarge),
+              Text('Atleta LiftLog', textAlign: TextAlign.center, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
               const SizedBox(height: 28),
+              Text('Preferencias', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
+              const SizedBox(height: 10),
               Card(
                 child: ListTile(
+                  leading: const Icon(Icons.flag_outlined),
                   title: const Text('Meta semanal'),
-                  subtitle: Text('$_weeklyGoal días de entrenamiento por semana'),
+                  subtitle: Text('$_weeklyGoal días de entrenamiento'),
                   trailing: DropdownButton<int>(
                     value: _weeklyGoal,
                     items: _goalOptions.map((goal) => DropdownMenuItem(value: goal, child: Text('$goal'))).toList(),
@@ -37,11 +42,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                   ),
                 ),
-              ),
-              const SizedBox(height: 12),
-              const Text(
-                'La meta se conserva durante esta sesión. El guardado de preferencias se añadirá con la persistencia de datos.',
-                textAlign: TextAlign.center,
               ),
             ],
           ),

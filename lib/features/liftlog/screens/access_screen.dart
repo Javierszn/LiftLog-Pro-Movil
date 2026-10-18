@@ -84,7 +84,7 @@ class _AccessScreenState extends State<AccessScreen> {
                     const SizedBox(height: 20),
                     FilledButton(
                       onPressed: _continue,
-                      child: Text(_registering ? 'Crear cuenta de muestra' : 'Iniciar sesión de muestra'),
+                      child: Text(_registering ? 'Crear cuenta' : 'Iniciar sesión'),
                     ),
                     TextButton(
                       onPressed: () => setState(() => _registering = !_registering),
@@ -92,7 +92,7 @@ class _AccessScreenState extends State<AccessScreen> {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      'Acceso de demostración. Las cuentas se guardarán cuando integremos la autenticación local.',
+                      '',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: colors.onSurfaceVariant, fontSize: 12),
                     ),

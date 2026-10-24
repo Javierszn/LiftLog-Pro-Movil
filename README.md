@@ -1,28 +1,40 @@
 # LiftLog Pro
 
-Aplicación Flutter para organizar rutinas de fuerza y llevar un registro personal de entrenamiento.
+Aplicación Flutter para crear rutinas, registrar entrenamientos y consultar el progreso personal.
 
-## Funciones
+## Módulos
 
-- Pantalla de acceso y panel principal.
-- Plan semanal con rutinas por día.
-- Sesión de entrenamiento con lista de ejercicios y control de avance.
-- Catálogo de ejercicios: agregar, consultar, editar y eliminar.
-- Registro de peso corporal con historial.
-- Perfil con meta semanal.
+- Acceso local con registro e inicio de sesión.
+- Inicio con rutina del día, meta semanal y actividad reciente.
+- Rutinas por día con alta, consulta, edición y eliminación de ejercicios o del día completo.
+- Sesiones con control de ejercicios completados e historial de levantamientos.
+- Progreso con mediciones corporales y fotos capturadas con la cámara.
+- Perfil con nombre, meta semanal, tema claro/oscuro y cierre de sesión.
 
-El acceso valida los campos y muestra el panel; no crea usuarios ni envía credenciales a un servicio. Los ejercicios, mediciones y meta semanal se mantienen en memoria durante la sesión. El proyecto está desarrollado con widgets de Flutter como `StatefulWidget`, `setState`, `ListView.builder`, `AlertDialog`, `DropdownButton`, `Dismissible`, `SnackBar` y `Navigator`.
+La app móvil guarda sus datos en SQLite. Las cuentas se mantienen en el dispositivo y la contraseña se guarda como resumen SHA-256 con sal aleatoria. En Chrome se usa el almacenamiento local del navegador para revisar las pantallas y conservar los datos en ese navegador; el botón de fotos abre el selector de archivos.
+
+La interfaz usa Material 3 y se adapta con contenido desplazable y un ancho máximo en pantallas grandes. El proyecto usa widgets y patrones trabajados en clase: `StatefulWidget`, `setState`, `ListView.builder`, `AlertDialog`, `DropdownButton`, `Dismissible`, `SnackBar` y `Navigator`.
 
 ## Ejecutar en Chrome
 
 ```powershell
 flutter pub get
-flutter run -d chrome
+flutter run -d web-server --web-hostname 127.0.0.1 --web-port 5000
 ```
+
+Abre `http://127.0.0.1:5000` en el navegador.
 
 ## Ejecutar en Android
 
 ```powershell
 flutter pub get
 flutter run
+```
+
+Al crear una cuenta, podrás agregar ejercicios y rutinas. En Android, la pantalla de progreso abre la cámara del dispositivo.
+
+## Revisar el proyecto
+
+```powershell
+flutter analyze
 ```

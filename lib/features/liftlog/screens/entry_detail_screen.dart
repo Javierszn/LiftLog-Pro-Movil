@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/lift_entry.dart';
 
 class EntryDetailScreen extends StatelessWidget {
@@ -18,7 +19,10 @@ class EntryDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(entry.name, style: Theme.of(context).textTheme.headlineMedium),
+                Text(
+                  entry.name,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
                 const SizedBox(height: 20),
                 Text('Grupo muscular: ${entry.muscleGroup}'),
                 Text('Día: ${entry.day}'),
